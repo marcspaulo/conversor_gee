@@ -36,6 +36,8 @@ export default function App() {
       ></TextInput>
 
 
+
+
       <text>você digitou: {valoreletricidade}</text>
     </View>
 
