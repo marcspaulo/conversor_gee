@@ -1,55 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { TextInput } from 'react-native-web';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Entradaemissoes from './src/telas/entradaemissoes/Entradaemissoes';
+import Calculoemissoes from './src/telas/calculoemissoes/Calculoemissoes';
 
-export default function App() {
-  const [valoreletricidade, setvaloreletricidade] = useState('');
+const Stack = createNativeStackNavigator();
 
-  return (
-    <View>
-      <Text >Consumo de energia</Text>
-      <TextInput
-        style={styles.input}
-        placeholderTextColor={'#fc0707ff'}
-        placeholder="Insira o consumo em Kwh"
-        keyboardType='numeric'
-        value={valoreletricidade}
-        onChangeText={setvaloreletricidade}
-      ></TextInput>
+export default function App(){
+  return(
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='TelaInicial'>
+        <Stack.Screen name = 'TelaInicial' component={Entradaemissoes} options={{title: 'Informe suas emissões abaixo:'}}/>
+        {/*<Stack.Screen name='Calculoemissoes' component={Calculoemissoes} options={{title:'Resultado das Emissões'}}/>*/}
+      </Stack.Navigator>
+    </NavigationContainer>
 
-      <Text>Consumo de água</Text>
-      <TextInput
-        placeholder="Insira o consumo em m3"
-      ></TextInput>
-
-
-      <Text>Consumo de combustível</Text>
-      <TextInput
-        placeholder="Insira o valor de combustível gasto"
-      ></TextInput>
-
-
-      <Text>Gás de cozinha</Text>
-      <TextInput
-        placeholder="Insira o valor"
-      ></TextInput>
-
-
-
-
-      <text>você digitou: {valoreletricidade}</text>
-    </View>
-
-  );
-
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
