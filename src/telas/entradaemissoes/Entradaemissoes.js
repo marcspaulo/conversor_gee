@@ -1,10 +1,11 @@
 /* Tela onde será informado os consumos*/
 
-import React, {useState} from 'react';
-import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import styles from './style';
 
 
-export default function Entradaemissoes({navigation}) {
+export default function Entradaemissoes({ navigation }) {
   const [consumoeletricidade, setconsumoeletricidade] = useState('');
   const [consumoagua, setconsumoagua] = useState('');
   const [consumocombustivel, setconsumocombustivel] = useState('');
@@ -13,7 +14,8 @@ export default function Entradaemissoes({navigation}) {
   return (
     <View>
 
-      <View> {/*<-- Bloco Consumo de energia*/}
+      {/*<-- Bloco Consumo de energia*/}
+      <View>
         <Text>Inserir aqui um texto breve sobre consumo</Text>
         <Text >Consumo de energia</Text>
         <TextInput
@@ -27,8 +29,8 @@ export default function Entradaemissoes({navigation}) {
 
 
 
-
-      <View> {/*<-- Bloco Consumo de água*/}
+      {/*<-- Bloco Consumo de água*/}
+      <View>
         <Text>Consumo de água</Text>
         <TextInput
           value={consumoagua}
@@ -38,8 +40,8 @@ export default function Entradaemissoes({navigation}) {
       </View>
 
 
-
-      <View> {/*<-- Bloco Consumo de combustível*/}
+      {/*<-- Bloco Consumo de combustível*/}
+      <View>
         <Text>Consumo de combustível</Text>
         <TextInput
           value={consumocombustivel}
@@ -49,8 +51,8 @@ export default function Entradaemissoes({navigation}) {
       </View>
 
 
-
-      <View>  {/*<-- Bloco Gás de cozinha*/}
+      {/*<-- Bloco Gás de cozinha*/}
+      <View>
         <Text>Gás de cozinha</Text>
         <TextInput
           value={consumogas}
@@ -63,21 +65,21 @@ export default function Entradaemissoes({navigation}) {
       <Text>você digitou: {consumoeletricidade}...{consumoagua}</Text>
 
       <Button
-      title="Calcular Emissões"
-      onPress={() => 
-        navigation.navigate('Calculoemissoes',{
-          energia: consumoeletricidade,
-          agua: consumoagua,
-          combustivel: consumocombustivel,
-          gas: consumogas
-        })
+        title="Calcular Emissões"
+        onPress={() =>
+          navigation.navigate('Calculoemissoes', {
+            energia: consumoeletricidade,
+            agua: consumoagua,
+            combustivel: consumocombustivel,
+            gas: consumogas
+          })
 
-      } 
+        }
       />
 
     </View >
 
-   
+
 
 
 

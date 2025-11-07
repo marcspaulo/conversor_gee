@@ -11,7 +11,7 @@ export default function App(){
     <NavigationContainer>
       <Stack.Navigator initialRouteName='TelaInicial'>
         <Stack.Screen name = 'TelaInicial' component={Entradaemissoes} options={{title: 'Informe suas emissões abaixo:'}}/>
-        {/*<Stack.Screen name='Calculoemissoes' component={Calculoemissoes} options={{title:'Resultado das Emissões'}}/>*/}
+        <Stack.Screen name='Calculoemissoes' component={Calculoemissoes} options={{title:'Resultado das Emissões'}}/>
       </Stack.Navigator>
     </NavigationContainer>
 
