@@ -1,38 +1,45 @@
 /* Tela onde será informado os consumos*/
 
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
 import styles from './style';
 
 
 export default function Entradaemissoes({ navigation }) {
   const [consumoeletricidade, setconsumoeletricidade] = useState('');
   const [consumoagua, setconsumoagua] = useState('');
-  const [consumocombustivel, setconsumocombustivel] = useState('');
+  const [consumogasolina, setconsumogasolina] = useState('');
+  const [consumodiesel, setconsumodiesel] = useState('');
   const [consumogas, setconsumogas] = useState('');
+  const [porteveiculo, setporteveiculo] = useState('');
+
 
   return (
     <View>
 
       {/*<-- Bloco Consumo de energia*/}
-      <View>
-        <Text>Inserir aqui um texto breve sobre consumo</Text>
-        <Text >Consumo de energia</Text>
+      <View style={styles.body}>
+
+        <Text style={styles.energia}> Consumo de energia: </Text>
         <TextInput
-          placeholderTextColor={'#fc0707ff'}
+          style={styles.input}
           placeholder="Insira o consumo em Kwh"
           keyboardType='numeric'
           value={consumoeletricidade}
           onChangeText={setconsumoeletricidade}
         ></TextInput>
+
       </View>
+      <Text> *Inserir aqui um texto breve sobre consumo de energia </Text>
+
 
 
 
       {/*<-- Bloco Consumo de água*/}
-      <View>
+      <View style={styles.body}>
         <Text>Consumo de água</Text>
         <TextInput
+          style={styles.input}
           value={consumoagua}
           onChangeText={setconsumoagua}
           placeholder="Insira o consumo em m3"
@@ -41,20 +48,30 @@ export default function Entradaemissoes({ navigation }) {
 
 
       {/*<-- Bloco Consumo de combustível*/}
-      <View>
-        <Text>Consumo de combustível</Text>
+      <View style={styles.body}>
+        <Text>Consumo de Gasolina</Text>
         <TextInput
-          value={consumocombustivel}
-          onChangeText={setconsumocombustivel}
-          placeholder="Insira o valor de combustível gasto"
+          style={styles.input}
+          value={consumogasolina}
+          onChangeText={setconsumogasolina}
+          placeholder="Insira o valor de gasolina em litros"
+        ></TextInput>
+
+        <Text>Consumo de Diesel</Text>
+        <TextInput
+          style={styles.input}
+          value={consumodiesel}
+          onChangeText={setconsumodiesel}
+          placeholder="Insira o valor de diesel em litros"
         ></TextInput>
       </View>
 
 
       {/*<-- Bloco Gás de cozinha*/}
-      <View>
+      <View style={styles.body}>
         <Text>Gás de cozinha</Text>
         <TextInput
+          style={styles.input}
           value={consumogas}
           onChangeText={setconsumogas}
           placeholder="Insira o valor"
@@ -65,12 +82,13 @@ export default function Entradaemissoes({ navigation }) {
       <Text>você digitou: {consumoeletricidade}...{consumoagua}</Text>
 
       <Button
-        title="Calcular Emissões"
+        title="Calcular"
         onPress={() =>
           navigation.navigate('Calculoemissoes', {
             energia: consumoeletricidade,
             agua: consumoagua,
-            combustivel: consumocombustivel,
+            gasolina: consumogasolina,
+            diesel: consumodiesel,
             gas: consumogas
           })
 
@@ -89,11 +107,3 @@ export default function Entradaemissoes({ navigation }) {
 
 }
 
-/*const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})*/

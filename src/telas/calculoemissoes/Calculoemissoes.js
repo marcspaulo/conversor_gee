@@ -8,21 +8,23 @@ import styles from './style';
 
 
 export default function Calculoemissoes({ route, navigation }) {
-    const { energia, agua, combustivel, gas } = route.params;
+    const { energia, agua, gasolina, diesel , gas } = route.params;
 
     const gasto_energia = parseFloat(energia) || 0;
     const gasto_agua = parseFloat(agua) || 0;
-    const gasto_combustivel = parseFloat(combustivel) || 0;
+    const gasto_gasolina = parseFloat(gasolina) || 0;
+    const gasto_diesel = parseFloat(diesel) || 0;
     const gasto_gas = parseFloat(gas) || 0;
 
 
-    const calculo_energia = gasto_energia * 0.055;
-    const calculo_agua = gasto_agua * 0.50;
-    const calculo_combustivel = gasto_combustivel * 2.31;
-    const calculo_gas = gasto_gas * 1.5;
+    const calculo_energia = gasto_energia * 0.0385;
+    const calculo_agua = gasto_agua * 0.40;
+    const calculo_gasolina = gasto_gasolina * 2.27;
+    const calculo_diesel = gasto_diesel * 2.68;
+    const calculo_gas = gasto_gas * 2.98 ;
 
 
-    const calculo_total = calculo_energia + calculo_agua + calculo_combustivel + calculo_gas;
+    const calculo_total = calculo_energia + calculo_agua + calculo_gasolina + calculo_diesel + calculo_gas;
 
     return (
         <View>
@@ -31,7 +33,7 @@ export default function Calculoemissoes({ route, navigation }) {
 
             <Text>Energia(Kwh): {calculo_energia}</Text>
             <Text>Água(M3): {calculo_agua} </Text>
-            <Text>Combustivel(L): {calculo_combustivel} </Text>
+            <Text>Gasolina(L): {calculo_gasolina} </Text>
             <Text>Gás(Kg): {calculo_gas}</Text>
 
 
@@ -40,7 +42,7 @@ export default function Calculoemissoes({ route, navigation }) {
             <Button
                 title='Voltar'
                 onPress={() =>
-                    navigation.goBack()}
+                    navigation.navigate('TelaInicial')}
             />
 
 
