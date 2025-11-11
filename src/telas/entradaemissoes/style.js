@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#e6e6e6ff',
         textAlign: 'center',
     },
+
+     button: {
+    },
+   
    
     input: {
         flexDirection:'row',
@@ -31,6 +35,52 @@ const styles = StyleSheet.create({
             marginBottom: 4,
        
     },
+
+       agua: {
+            backgroundColor:'#0033ffff',
+            color: '#fff',
+            paddingVertical: 12,
+            borderTopLeftRadius: 8,
+            borderTopRightRadius: 8,
+            fontWeight: 'bold',
+            marginBottom: 4,
+       
+    },
+
+       gasolina: {
+            backgroundColor:'#00712bff',
+            color: '#fff',
+            paddingVertical: 12,
+            borderTopLeftRadius: 8,
+            borderTopRightRadius: 8,
+            fontWeight: 'bold',
+            marginBottom: 4,
+       
+    },
+
+       diesel: {
+            backgroundColor:'#00712bff',
+            color: '#fff',
+            paddingVertical: 12,
+            borderTopLeftRadius: 8,
+            borderTopRightRadius: 8,
+            fontWeight: 'bold',
+            marginBottom: 4,
+       
+    },
+
+       gas: {
+            backgroundColor:'#646063ff',
+            color: '#fff',
+            paddingVertical: 12,
+            borderTopLeftRadius: 8,
+            borderTopRightRadius: 8,
+            fontWeight: 'bold',
+            marginBottom: 4,
+       
+    },
+
+
 
     
 

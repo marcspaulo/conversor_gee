@@ -37,7 +37,7 @@ export default function Entradaemissoes({ navigation }) {
 
       {/*<-- Bloco Consumo de água*/}
       <View style={styles.body}>
-        <Text>Consumo de água</Text>
+        <Text style={styles.agua} >Consumo de água</Text>
         <TextInput
           style={styles.input}
           value={consumoagua}
@@ -49,7 +49,7 @@ export default function Entradaemissoes({ navigation }) {
 
       {/*<-- Bloco Consumo de combustível*/}
       <View style={styles.body}>
-        <Text>Consumo de Gasolina</Text>
+        <Text style={styles.gasolina}>Consumo de Gasolina</Text>
         <TextInput
           style={styles.input}
           value={consumogasolina}
@@ -57,7 +57,7 @@ export default function Entradaemissoes({ navigation }) {
           placeholder="Insira o valor de gasolina em litros"
         ></TextInput>
 
-        <Text>Consumo de Diesel</Text>
+        <Text style={styles.diesel} >Consumo de Diesel</Text>
         <TextInput
           style={styles.input}
           value={consumodiesel}
@@ -69,7 +69,7 @@ export default function Entradaemissoes({ navigation }) {
 
       {/*<-- Bloco Gás de cozinha*/}
       <View style={styles.body}>
-        <Text>Gás de cozinha</Text>
+        <Text style={styles.gas} >Gás de cozinha</Text>
         <TextInput
           style={styles.input}
           value={consumogas}
@@ -82,6 +82,7 @@ export default function Entradaemissoes({ navigation }) {
       <Text>você digitou: {consumoeletricidade}...{consumoagua}</Text>
 
       <Button
+      style= {styles.button}
         title="Calcular"
         onPress={() =>
           navigation.navigate('Calculoemissoes', {
