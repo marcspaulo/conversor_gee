@@ -1,7 +1,7 @@
 /* Tela onde será informado os consumos*/
 
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Image, ScrollView, } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Image, ScrollView, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './style';
 
@@ -12,7 +12,35 @@ export default function Entradaemissoes({ navigation }) {
   const [consumogasolina, setconsumogasolina] = useState('');
   const [consumodiesel, setconsumodiesel] = useState('');
   const [consumogas, setconsumogas] = useState('');
-  const [porteveiculo, setporteveiculo] = useState('');
+  /**const [porteveiculo, setporteveiculo] = useState('');*/
+
+
+  const calcular = () => {
+    const gasto_energia = parseFloat(consumoeletricidade) || 0;
+    const gasto_agua = parseFloat(consumoagua) || 0;
+    const gasto_gasolina = parseFloat(consumogasolina) || 0;
+    const gasto_diesel = parseFloat(consumodiesel) || 0;
+    const gasto_gas = parseFloat(consumogas) || 0;
+
+
+    if (
+      gasto_energia > 0 ||
+      gasto_agua > 0 ||
+      gasto_gasolina > 0 ||
+      gasto_diesel > 0 || gasto_gas > 0
+    ) {
+      navigation.navigate('Calculoemissoes', {
+        energia: gasto_energia,
+        agua: gasto_agua,
+        gasolina: gasto_gasolina,
+        diesel: gasto_diesel,
+        gas: gasto_gas,
+      })
+    } else {
+      Alert.alert('Atenção', 'Por favor responda ao menos uma das informações para continuar.');
+    }
+  };
+
 
 
   const [detalhes_energia, setdetalhes_energia] = useState(false);
@@ -20,6 +48,13 @@ export default function Entradaemissoes({ navigation }) {
   const [detalhes_gasolina, setdetalhes_gasolina] = useState(false);
   const [detalhes_diesel, setdetalhes_diesel] = useState(false);
   const [detalhes_gas, setdetalhes_gas] = useState(false);
+
+
+
+
+
+
+
 
 
   return (
@@ -52,13 +87,19 @@ export default function Entradaemissoes({ navigation }) {
                 Mais detalhes </Text>
 
               {detalhes_energia && (
-                <Text>As emissões de eletricidade são calculadas com base no fator oficial do Sistema Interligado Nacional (SIN), publicado anualmente pelo MCTI.
-                  Esse fator representa a média da matriz elétrica brasileira no ano-base escolhido.
-
-                  Fator utilizado (exemplo 2023): 0,0385 kg CO₂/kWh
-                  Fonte atualizada: MCTI – Fator Médio para Inventários Corporativos
-                  https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/cgcl/paginas/fator-medio-inventarios-corporativos</Text>
-
+                <View>
+                  <Text style={styles.detalhes}>
+                    O consumo de energia elétrica é referente à quantidade de eletricidade usada em residências, comércios ou indústrias para alimentar equipamentos, iluminação e aparelhos em geral.
+                    Você pode verificar o consumo na sua conta de energia elétrica, normalmente indicado em kWh (quilowatt-hora).
+                  </Text>
+                  <Text style={styles.detalhes}> As emissões de eletricidade são calculadas com base no fator oficial do Sistema Interligado Nacional (SIN), publicado anualmente pelo MCTI. Esse fator representa a média da matriz elétrica brasileira no ano-base escolhido.
+                  </Text>
+                  <Text style={styles.detalhes}>Fator utilizado: 0,0385 kg CO₂/kWh Fonte: MCTI – Fator Médio para Inventários Corporativos
+                  </Text>
+                  <Text style={styles.detalhes}>Cálculo do fator usado A fórmula geral é:
+                  </Text>
+                  <Text style={styles.formula}> Emissão = kWh × Fator</Text>
+                </View>
               )}
             </View>
           </View>
@@ -68,12 +109,12 @@ export default function Entradaemissoes({ navigation }) {
           {/*<-- Bloco Consumo de água*/}
           <View style={styles.body}>
             <Text style={styles.agua} >Consumo de água</Text>
-            
+
 
             <View style={styles.container}>
-              <Image 
-              style={styles.icon}
-                source={require('../../../assets/agua.png')}/>
+              <Image
+                style={styles.icon}
+                source={require('../../../assets/agua.png')} />
               <TextInput
                 style={styles.input}
                 value={consumoagua}
@@ -108,7 +149,10 @@ export default function Entradaemissoes({ navigation }) {
           <View style={styles.body}>
             <Text style={styles.gasolina}>Consumo de Gasolina</Text>
 
-             <View style={styles.container}>
+            <View style={styles.container}>
+              <Image
+                style={styles.icon}
+                source={require('../../../assets/gasolina.png')} />
               <TextInput
                 style={styles.input}
                 value={consumogasolina}
@@ -119,27 +163,30 @@ export default function Entradaemissoes({ navigation }) {
               ></TextInput>
             </View>
             <View>
-                <Text
-                  style={styles.gasolina}
-                  onPress={() => setdetalhes_gasolina(!detalhes_gasolina)}>
-                  Mais detalhes </Text>
+              <Text
+                style={styles.gasolina}
+                onPress={() => setdetalhes_gasolina(!detalhes_gasolina)}>
+                Mais detalhes </Text>
 
-                {detalhes_gasolina && (
-                  <Text>As emissões de gasolina consideram a combustão completa do combustível no motor. O fator de emissão segue o padrão internacional do IPCC e representa o CO₂ liberado por litro consumido.
+              {detalhes_gasolina && (
+                <Text>As emissões de gasolina consideram a combustão completa do combustível no motor. O fator de emissão segue o padrão internacional do IPCC e representa o CO₂ liberado por litro consumido.
 
-                    Fator utilizado: 2,27 kg CO₂ por litro
-                    Como é calculado: Emissões = litros consumidos × 2,27
-                    Fonte: IPCC 2006 – Mobile Combustion
-                    https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html</Text>
+                  Fator utilizado: 2,27 kg CO₂ por litro
+                  Como é calculado: Emissões = litros consumidos × 2,27
+                  Fonte: IPCC 2006 – Mobile Combustion
+                  https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html</Text>
 
-                )}
-              </View>
+              )}
+            </View>
 
 
 
             {/*<-- Bloco Consumo de Diesel*/}
             <Text style={styles.diesel} >Consumo de Diesel</Text>
             <View style={styles.container}>
+              <Image
+                style={styles.icon}
+                source={require('../../../assets/diesel.png')} />
               <TextInput
                 style={styles.input}
                 value={consumodiesel}
@@ -174,6 +221,9 @@ export default function Entradaemissoes({ navigation }) {
             <Text style={styles.gas} >Gás de cozinha GLP</Text>
 
             <View style={styles.container}>
+              <Image
+                style={styles.icon}
+                source={require('../../../assets/gas.png')} />
               <TextInput
                 style={styles.input}
                 value={consumogas}
@@ -205,17 +255,7 @@ export default function Entradaemissoes({ navigation }) {
 
           <View>
             <Button
-              title="Calcular"
-              onPress={() =>
-                navigation.navigate('Calculoemissoes', {
-                  energia: consumoeletricidade,
-                  agua: consumoagua,
-                  gasolina: consumogasolina,
-                  diesel: consumodiesel,
-                  gas: consumogas
-                })
-
-              } />
+              title="Calcular" onPress={(calcular)} />
           </View>
 
 

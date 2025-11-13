@@ -33,13 +33,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#e6e6e6ff',
-       borderRadius: 6,
+        borderRadius: 6,
         paddingHorizontal: 10,
 
     },
 
     icon: {
-     width: 45,      
+        width: 45,
         height: 45,
         resizeMode: 'contain',
         marginRight: 8,
@@ -57,6 +57,21 @@ const styles = StyleSheet.create({
 
     },
 
+
+    detalhes: {
+        fontSize: 15,
+        color: '#333',
+        lineHeight: 22,
+        textAlign: 'justify',
+        marginBottom: 10,
+    },
+
+    formula: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 8,
+    },
 
 
     energia: {
