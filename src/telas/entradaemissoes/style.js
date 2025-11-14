@@ -1,25 +1,24 @@
 /*Aba focada em estilizar a pagina Tela Inicial / Entradaemissoes*/
 
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 
     body: {
         paddingHorizontal: 15,
         paddingTop: 15,
-        paddingBottom: 20,
-        flex: 1,
+        paddingBottom: 10,
     },
 
     responsive: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#FAFAFA',
     },
 
     button: {
         paddingHorizontal: 15,
         paddingVertical: 10,
-        backgroundColor: '#fff',
+        backgroundColor: '#FAFAFA',
         borderTopWidth: 1,
         borderTopColor: '#ddd'
 
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#e6e6e6ff',
+        backgroundColor: '#FAFAFA',
         borderRadius: 6,
         paddingHorizontal: 10,
 
@@ -54,9 +53,10 @@ const styles = StyleSheet.create({
         fontSize: 14,
         flex: 1,
         alignSelf: 'stretch',
+        backgroundColor: '#FAFAFA',
+
 
     },
-
 
     detalhes: {
         fontSize: 15,
@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
 
 
     energia: {
-        backgroundColor: '#ff8800',
+        backgroundColor: '#FF9F45',
         color: '#fff',
-        paddingVertical: 12,
+        paddingVertical: 10,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
         fontWeight: 'bold',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
 
     agua: {
-        backgroundColor: '#0033ffff',
+        backgroundColor: '#4A90E2',
         color: '#fff',
         paddingVertical: 12,
         borderTopLeftRadius: 8,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     },
 
     gasolina: {
-        backgroundColor: '#00712bff',
+        backgroundColor: '#52B788',
         color: '#fff',
         paddingVertical: 12,
         borderTopLeftRadius: 8,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     },
 
     diesel: {
-        backgroundColor: '#00712bff',
+        backgroundColor: '#52B788',
         color: '#fff',
         paddingVertical: 12,
         borderTopLeftRadius: 8,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     },
 
     gas: {
-        backgroundColor: '#646063ff',
+        backgroundColor: '#FF6F61',
         color: '#fff',
         paddingVertical: 12,
         borderTopLeftRadius: 8,
@@ -129,13 +129,6 @@ const styles = StyleSheet.create({
         marginBottom: 4,
 
     },
-
-
-
-
-
-
-
 })
 
 

@@ -6,6 +6,7 @@ import Calculoemissoes from './src/telas/calculoemissoes/Calculoemissoes';
 
 const Stack = createNativeStackNavigator();
 
+
 export default function App(){
   return(
     <NavigationContainer>
@@ -15,5 +16,4 @@ export default function App(){
       </Stack.Navigator>
     </NavigationContainer>
 
-  )
-}
+  )}
