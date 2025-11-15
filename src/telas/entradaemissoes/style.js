@@ -5,11 +5,10 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
 
     body: {
-        paddingHorizontal: 15,
-        paddingTop: 15,
-        paddingBottom: 10,
+        flex: 1,
+        backgroundColor: '#F5F6FA',
+        padding: 10,
     },
-
     responsive: {
         flex: 1,
         backgroundColor: '#FAFAFA',
@@ -54,8 +53,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: 'stretch',
         backgroundColor: '#FAFAFA',
-
-
     },
 
     detalhes: {
@@ -64,6 +61,8 @@ const styles = StyleSheet.create({
         lineHeight: 22,
         textAlign: 'justify',
         marginBottom: 10,
+        elevation: 3,
+
     },
 
     formula: {
@@ -82,8 +81,18 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 8,
         fontWeight: 'bold',
         paddingHorizontal: 15,
+        elevation: 3,
 
+    },
 
+    detalhes_energia: {
+        backgroundColor: '#FF9F45',
+        color: '#fff',
+        paddingVertical: 2,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
+        paddingHorizontal: 15,
+        elevation: 3,
     },
 
     agua: {
@@ -94,8 +103,20 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 8,
         fontWeight: 'bold',
         marginBottom: 4,
-
+        elevation: 3,
     },
+
+    detalhes_agua: {
+        backgroundColor: '#4A90E2',
+        color: '#fff',
+        paddingVertical: 2,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
+        paddingHorizontal: 15,
+        elevation: 3,
+    },
+
+
 
     gasolina: {
         backgroundColor: '#52B788',
@@ -105,6 +126,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 8,
         fontWeight: 'bold',
         marginBottom: 4,
+        elevation: 3,
 
     },
 
@@ -116,7 +138,17 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 8,
         fontWeight: 'bold',
         marginBottom: 4,
+        elevation: 3,
+    },
 
+    detalhes_combustivel: {
+        backgroundColor: '#52B788',
+        color: '#fff',
+        paddingVertical: 2,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
+        paddingHorizontal: 15,
+        elevation: 3,
     },
 
     gas: {
@@ -127,7 +159,16 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 8,
         fontWeight: 'bold',
         marginBottom: 4,
-
+        elevation: 3,
+    },
+    detalhes_gas: {
+        backgroundColor: '#FF6F61',
+        color: '#fff',
+        paddingVertical: 2,
+        borderBottomLeftRadius: 8,
+        borderBottomRightRadius: 8,
+        paddingHorizontal: 15,
+        elevation: 3,
     },
 })
 

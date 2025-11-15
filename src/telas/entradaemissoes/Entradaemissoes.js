@@ -12,7 +12,6 @@ export default function Entradaemissoes({ navigation }) {
   const [consumogasolina, setconsumogasolina] = useState('');
   const [consumodiesel, setconsumodiesel] = useState('');
   const [consumogas, setconsumogas] = useState('');
-  /**const [porteveiculo, setporteveiculo] = useState('');*/
 
 
   const calcular = () => {
@@ -60,11 +59,12 @@ export default function Entradaemissoes({ navigation }) {
   return (
     <SafeAreaView>
       <View>
-        <ScrollView style={styles.scroll}>
-
-          {/*<-- Bloco Consumo de energia*/}
+        <ScrollView >
           <View style={styles.body}>
-
+            <Text>Insira abaixo os valores de consumo para que possamos estimar suas emissões de CO₂. Preencha apenas os itens utilizados no período analisado.</Text>
+           
+           
+            {/*<-- Bloco Consumo de energia*/}
             <Text style={styles.energia}> Consumo de energia: </Text>
             <View style={styles.container}>
               <Image
@@ -82,7 +82,8 @@ export default function Entradaemissoes({ navigation }) {
 
             <View>
               <Text
-                style={styles.energia}
+                style={styles.detalhes_energia}
+
                 onPress={() => setdetalhes_energia(!detalhes_energia)}>
                 Mais detalhes </Text>
 
@@ -124,7 +125,7 @@ export default function Entradaemissoes({ navigation }) {
             </View>
             <View>
               <Text
-                style={styles.agua}
+                style={styles.detalhes_agua}
                 onPress={() => setdetalhes_agua(!detalhes_agua)}>
                 Mais detalhes </Text>
 
@@ -163,7 +164,7 @@ export default function Entradaemissoes({ navigation }) {
             </View>
             <View>
               <Text
-                style={styles.gas}
+                style={styles.detalhes_gas}
                 onPress={() => setdetalhes_gas(!detalhes_gas)}>
                 Mais detalhes </Text>
 
@@ -185,8 +186,6 @@ export default function Entradaemissoes({ navigation }) {
 
               )}
             </View>
-
-
           </View>
 
 
@@ -210,7 +209,7 @@ export default function Entradaemissoes({ navigation }) {
             </View>
             <View>
               <Text
-                style={styles.gasolina}
+                style={styles.detalhes_combustivel}
                 onPress={() => setdetalhes_gasolina(!detalhes_gasolina)}>
                 Mais detalhes </Text>
 
@@ -230,10 +229,13 @@ export default function Entradaemissoes({ navigation }) {
                 </View>
               )}
             </View>
+          </View>
 
 
 
-            {/*<-- Bloco Consumo de Diesel*/}
+
+          {/*<-- Bloco Consumo de Diesel*/}
+          <View style={styles.body}>
             <Text style={styles.diesel} >Consumo de Diesel</Text>
             <View style={styles.container}>
               <Image
@@ -251,7 +253,7 @@ export default function Entradaemissoes({ navigation }) {
 
             <View>
               <Text
-                style={styles.diesel}
+                style={styles.detalhes_combustivel}
                 onPress={() => setdetalhes_diesel(!detalhes_diesel)}>
                 Mais detalhes </Text>
 
@@ -272,12 +274,10 @@ export default function Entradaemissoes({ navigation }) {
           </View>
 
 
-          <View>
+          <View style={styles.body}>
             <Button
               title="Calcular" onPress={(calcular)} />
           </View>
-
-
 
         </ScrollView>
       </View>
