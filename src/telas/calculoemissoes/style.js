@@ -98,4 +98,13 @@ export default StyleSheet.create({
         paddingBottom: 40,
     },
 
+
+     subtitulo_emissao: {
+        fontSize: 32,
+        fontWeight: "700",
+        marginTop: 8,
+        color: "#1C1C1C",
+        textAlign: 'center'
+    },
+
 });

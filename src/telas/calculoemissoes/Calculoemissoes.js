@@ -93,8 +93,9 @@ export default function Calculoemissoes({ route, navigation }) {
                         <Text style={styles.titulo_texto}>Para neutralizar as emissões geradas, uma forma eficiente é o plantio de árvores.</Text>
                         <Text style={styles.titulo_texto}>Cada árvore adulta é capaz de absorver, em média, 21 kg de CO₂ por ano.</Text>
                         <Text style={styles.titulo_texto}>Com base no total emitido, calculamos automaticamente quantas árvores seriam necessárias para compensar a sua emissão atual.</Text>
+                        
                         <View>
-                            <Text style={styles.subtitulo}>{calculo_arvores.toFixed()} árvores. </Text>
+                            <Text style={styles.subtitulo_emissao}>{calculo_arvores.toFixed()} árvore(s). </Text>
                         </View>
 
                     </View>
